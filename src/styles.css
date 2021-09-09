@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+.password-icon{
+    float: right;
+    position: relative;
+    margin: -40px 15px 0 0;
+    cursor: pointer;
+}
+
+.back_img{
+    background-color: black;
+}
+.card{
+    border-radius: 20px !important;
+}
+
+.card .card-text{
+    color: #757575 !important;
+}
+
+.card:hover .card-text{
+    color: black !important;
+    transition: all 1.5s ease;
+}
+
+.card:hover{
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    transition: all 1.5s ease;
+}
+
+.card-img-top{
+    opacity: 0.4;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    border-radius: 50% !important;
+    transition: all 1.5s ease;
+}
+.back_img{
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+.card:hover .card-img-top{
+    opacity: 1;
+    border-radius: 0% !important;
+    transition: all 1.5s ease;
+}

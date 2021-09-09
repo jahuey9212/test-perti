@@ -1,0 +1,82 @@
+<div class="row mt-5">
+  <div class="col sm-12 col-md-10 col-lg-8 offset-lg-2">
+    <div class="collapse multi-collapse show" id="multiCollapseExample1">
+      <div class="row">
+        <div class="col-12 card pt-3 pb-3" *ngIf="login">
+          <p class="text-note"><b>Nota:</b> La Información es rellenada de manera automática</p>
+
+          <h2>Registro de Usuario</h2><br>
+          <form class="ml-0 pl-0" #registerForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-group col-4">
+                    <label for="title">Titulo</label>
+                    <input type="text" name="title" class="form-control" #title="ngModel" [(ngModel)]="login.title"
+                      required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]+" placeholder="Daniel">
+    
+                    <small *ngIf="!title.valid && title.touched" class="invalid-feedback d-block">
+                      El Titulo no es valido
+                    </small>
+                  </div>
+
+              <div class="form-group col-4">
+                <label for="first">Nombre</label>
+                <input type="text" name="first" class="form-control" #first="ngModel" [(ngModel)]="login.first"
+                  required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]+" placeholder="Daniel">
+
+                <small *ngIf="!first.valid && first.touched" class="invalid-feedback d-block">
+                  El nombre no es valido
+                </small>
+              </div>
+              <div class="form-group col-4">
+                <label for="last">Apellido Paterno</label>
+                <input type="text" name="last" class="form-control" #last="ngModel"
+                  [(ngModel)]="login.last" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]+" placeholder="Hernández">
+
+                <small *ngIf="!last.valid && last.touched" class="invalid-feedback d-block">
+                  El Apellido Paterno No es Valido
+                </small>
+              </div>
+              <div class="form-group col-4">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" #username="ngModel"
+                  [(ngModel)]="login.username" required>
+
+                <small *ngIf="!username.valid && username.touched" class="invalid-feedback d-block">
+                  El Username No es Valido
+                </small>
+              </div>
+
+              <div class="form-group col-4">
+                <label for="password">Password</label>
+                <input type="text" name="password" class="form-control" #password="ngModel"
+                  [(ngModel)]="login.password" required>
+
+                <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
+                  El Password No es Valido
+                </small>
+              </div>
+
+              <div class="col-12">
+                <br>
+                <hr>
+                  <div class="alert alert-success" *ngIf="status == 'success'">
+                    El Registro del Estudiante se hizo Correctamente <a
+                      [routerLink]="['/']"> Identificate</a>, con las credenciales recibidas del usuario.
+                  </div>
+                  <div class="alert alert-danger" *ngIf="status == 'error'">
+                    No se realizo el registro del usuario
+                  </div>
+                  <button class="btn btn-primary float-end ms-2" type="submit" [disabled]="registerForm.invalid">
+                    <span class="spinner-grow spinner-grow-sm me-2 visually-hidden" role="status"
+                      aria-hidden="true" id="preload_int"></span>
+                    Registrar
+                  </button>
+              </div>
+             
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

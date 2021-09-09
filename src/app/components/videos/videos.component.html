@@ -1,0 +1,45 @@
+<div class="row mt-1 p-4">
+  <div class="col-12 pt-3 pb-3">
+    <h3>Listado de Videos</h3>
+    <div class="d-flex col-lg-4">
+      <input class="form-control me-2" type="search" [(ngModel)]="search" (keypress)="onKeypressEvent($event)"
+        placeholder="Enter para Buscar" aria-label="Search">
+      <button class="btn btn-outline-secondary" (click)="searchVideos()">Buscar</button>
+    </div>
+  </div>
+
+  <div class="col-12" *ngIf="videos.length==0">
+    <div class="card text-center">
+      <div class="card-header">
+        Recuperando Videos del Servidor
+      </div>
+      <div class="card-body">
+        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+        <h5 class="card-title">Espere un momento se esta obteniendo la información del servidor.</h5>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let video of videos">
+    <div class="card mb-2 mt-2">
+      <div class="back_img">
+      <img src="{{video.image}}" class="card-img-top img-fluid" style="height: 400px !important">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{video.name}}</h5>
+        <p class=" card-text mb-0"><b>Id:</b> <span class="badge bg-secondary ms-2">{{video.id}}</span></p>
+        <p class="card-text mb-0 mt-1"><b>Season:</b> {{video.season}}</p>
+        <p class="card-text mb-0 mt-1"><b>AirDate:</b> {{video.airdate}} -- {{video.airtime}}</p>
+        <p class="card-text mb-2 mt-1"><b>Type:</b> {{video.type}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="text-center">
+          <a href="{{video.url}}" class="btn btn-sm btn-secondary rounded-2" target="_blank">Accede al Video</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
